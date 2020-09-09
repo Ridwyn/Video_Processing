@@ -2,10 +2,16 @@
 #include <stdio.h>
 #include <GLFW/glfw3.h>
 
+extern "C" {
+#include "avcodec.h"
+#include "buffer.h"
+}
+
 
 int main(int argc, char *argv[])
 {
 	GLFWwindow* window;
+	AVCodec *codec;
 
 	if(!glfwInit()){
 		printf("couldnnot init ");
@@ -37,8 +43,8 @@ int main(int argc, char *argv[])
 		for (int x = 25; x < 75; x++)
 		{
 			data[y * 100 *3 + x *3] = 0x00;
-			data[y * 100 *3 + x *3 +1] = 0x00;
-			data[y * 100 *3 + x *3 +2] = 0xff;
+			data[y * 100 *3 + x *3 +1] = 0xff;
+			data[y * 100 *3 + x *3 +2] = 0x00;
 		}
 		
 	}
