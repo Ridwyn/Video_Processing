@@ -7,20 +7,11 @@
 * In build directory run "cmake --build . --target video-app" to build a video-app.exe or add --config Debug to build in debug mode
 * Open executable in Debug directory
 
-## Find executable .exe
-* Navigate to Debug directory in build
-* Copy all .dll from lib/ffmpeg/shared to Debug directory as executable depends on fmpeg dll's
-* Double click on exe to open
 
-## Open in VS studio
-* Make sure to cmkae build project before into build directory.
-* in build directory open a new ffmpeg directory under lib eg. build/lib/FFmpeg
-* Copy lib files form lib/ffmpeg/dev/lib into build/lib/FFmpeg
-* Double click on video-app.vcxproj to open visual studio.
 
 ## Dependency /Libs
 * glfw (OpenGL)
-* ffmpeg zeranoe builds [shared&dev]
+* ffmpeg zeranoe builds [shared+dev]
 
 
 ./configure --disable-x86asm --enable-shared --disable-static  --libdir=/libs
