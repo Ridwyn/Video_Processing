@@ -7,17 +7,34 @@ add_subdirectory(lib/glfw)
 find_package(OpenGL REQUIRED)
 
 
-find_library (ffmpeg  PATHS  lib/ffmpeg)
-find_library (libavcodec "avcodec" PATHS  /lib/ffmpeg/libavcodec/avcodec.h NO_DEFAULT_PATH)
-find_library (libavfilter  PATHS  lib/ffmpeg/libavfilter)
-find_library (libavdevice  PATHS  lib/ffmpeg/libavdevice)
-find_library (libavformat  PATHS  lib/ffmpeg/libavformat)
-find_library (libavresample  PATHS  lib/ffmpeg/libavresample)
-find_library (libavutil  PATHS  lib/ffmpeg/libavutil)
-find_library (libswscale  PATHS  lib/ffmpeg/libswscale)
+list(APPEND LIBSLINK
+    lib/FFmpeg/avcodec
+    lib/FFmpeg/avfilter
+    lib/FFmpeg/avdevice
+    lib/FFmpeg/avformat
+    lib/FFmpeg/swresample
+    lib/FFmpeg/avutil
+    lib/FFmpeg/swscale
+)
+
+list(APPEND INCLUDES
+    lib/ffmpeg/dev/include/libavcodec
+    lib/ffmpeg/dev/include/libavfilter
+    lib/ffmpeg/dev/include/libavdevice
+    lib/ffmpeg/dev/include/libavformat
+    lib/ffmpeg/dev/include/libavutil
+    lib/ffmpeg/dev/include/libswresample
+    lib/ffmpeg/dev/include/libswscale
+)
+
+list(APPEND SOURCES
+    src/main.cpp
+    src/load_frame.cpp
+)
 
 
-add_executable(video-app src/main.cpp)
-target_include_directories(video-app PUBLIC lib/ffmpeg/libavcodec lib/ffmpeg/libavfilter lib/ffmpeg/libavdevice lib/ffmpeg/libavformat lib/ffmpeg/libavresample lib/ffmpeg/libavutil lib/ffmpeg/libswscale lib/ffmpeg)
-target_link_libraries(video-app glfw OpenGL::GL)
+
+add_executable(video-app ${SOURCES}  ${INCLUDES} )
+target_include_directories(video-app PUBLIC ${INCLUDES})
+target_link_libraries(video-app glfw OpenGL::GL ${LIBSLINK} )
 
