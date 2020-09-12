@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	unsigned char* frame_data;
 
 
-	if(!load_frame("/Users/User/Videos/Captures/ab.mp4", &frame_width, &frame_height, &frame_data)){
+	if(!load_frame("/Users/User/Videos/Captures/Video.mp4", &frame_width, &frame_height, &frame_data)){
 		printf("couldn't load video frame");
 		return 1;
 	}

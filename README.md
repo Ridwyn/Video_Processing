@@ -3,6 +3,10 @@
 2. Navigate to build folder through bash
 3. Type "cmake .." to compile and build project into the build folder e.g
 
+## Build executable
+* In build directory run "cmake --build . --target video-app" to build a video-app.exe or add --config Debug to build in debug mode
+* Open executable in Debug directory
+
 ## Find executable .exe
 * Navigate to debug folder in build
 * Double click on exe to open
