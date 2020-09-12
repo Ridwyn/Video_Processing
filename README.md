@@ -8,7 +8,8 @@
 * Open executable in Debug directory
 
 ## Find executable .exe
-* Navigate to debug folder in build
+* Navigate to Debug directory in build
+* Copy all .dll from lib/ffmpeg/shared to Debug directory as executable depends on fmpeg dll's
 * Double click on exe to open
 
 ## Open in VS studio
